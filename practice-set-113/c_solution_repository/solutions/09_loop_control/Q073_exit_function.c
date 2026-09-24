@@ -14,4 +14,13 @@ The PPT does not specify credential values; 'admin'/'1234' are demonstration val
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-int main(void){char u[64],p[64];scanf("%63s%63s",u,p);if(strcmp(u,"admin")!=0||strcmp(p,"1234")!=0){puts("Incorrect credentials");exit(EXIT_FAILURE);}puts("Access granted");return 0;}
+int main(void){
+    char u[64],p[64];
+    scanf("%63s%63s",u,p);
+    if(strcmp(u,"admin")!=0||strcmp(p,"1234")!=0){
+        puts("Incorrect credentials");
+        exit(EXIT_FAILURE);
+    }
+    puts("Access granted");
+    return 0;
+}
