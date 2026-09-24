@@ -12,4 +12,16 @@ The PPT does not define what makes a reading faulty; this version treats negativ
 */
 
 #include <stdio.h>
-int main(void){int n;scanf("%d",&n);for(int i=0;i<n;i++){int x;scanf("%d",&x);if(x<0)continue;printf("%d ",x);}putchar('\n');return 0;}
+int main(void){
+    int n;
+    scanf("%d",&n);
+    for(int i=0;i<n;i++){
+        int x;
+        scanf("%d",&x);
+        if(x<0)
+            continue;
+        printf("%d ",x);
+    }
+    putchar('\n');
+    return 0;
+}

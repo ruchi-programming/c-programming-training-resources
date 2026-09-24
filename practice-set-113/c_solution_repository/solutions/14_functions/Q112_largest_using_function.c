@@ -9,5 +9,12 @@ Define max2(a,b); return the greater; print it.
 */
 
 #include <stdio.h>
-double max2(double a,double b){return a>b?a:b;}
-int main(void){double a,b;scanf("%lf%lf",&a,&b);printf("%.2f\n",max2(a,b));return 0;}
+double max2(double a,double b){
+    return a>b?a:b;
+}
+int main(void){
+    double a,b;
+    scanf("%lf%lf",&a,&b);
+    printf("%.2f\n",max2(a,b));
+    return 0;
+}

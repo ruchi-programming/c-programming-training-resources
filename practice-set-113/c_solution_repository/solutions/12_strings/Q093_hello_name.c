@@ -12,4 +12,9 @@ The PPT does not specify whether names may contain spaces; this version reads on
 */
 
 #include <stdio.h>
-int main(void){char name[200];scanf("%199s",name);printf("Hello %s\n",name);return 0;}
+int main(void){
+    char name[200];
+    scanf("%199s",name);
+    printf("Hello %s\n",name);
+    return 0;
+}

@@ -13,4 +13,27 @@ The PPT does not specify menu numbers; this version uses 1=square, 2=square root
 
 #include <stdio.h>
 #include <math.h>
-int main(void){int ch;double x;do{scanf("%d",&ch);if(ch==4)break;if(ch<1||ch>4){puts("Invalid choice");continue;}scanf("%lf",&x);if(ch==1)printf("%.6f\n",x*x);else if(ch==2){if(x<0)puts("Invalid square root");else printf("%.6f\n",sqrt(x));}else if(ch==3)printf("%.6f\n",x*x*x);}while(1);return 0;}
+int main(void){
+    int ch;
+    double x;
+    do{
+        scanf("%d",&ch);
+        if(ch==4)
+            break;
+        if(ch<1||ch>4){
+            puts("Invalid choice");
+            continue;
+        }
+        scanf("%lf",&x);
+        if(ch==1)
+            printf("%.6f\n",x*x);
+        else if(ch==2){
+            if(x<0)
+                puts("Invalid square root");
+            else 
+                printf("%.6f\n",sqrt(x));
+        }else if(ch==3)
+            printf("%.6f\n",x*x*x);
+    }while(1);
+    return 0;
+}
