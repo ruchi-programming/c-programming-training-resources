@@ -1,0 +1,5 @@
+C programming is useful.
+Programming teaches problem solving.
+C is used to build efficient programs.
+File handling is an important part of C programming.
+Practice makes programming skills stronger.
