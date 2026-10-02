@@ -1,0 +1,6 @@
+
+# C build/runtime files
+*.exe
+*.o
+*.obj
+transactions.txt
