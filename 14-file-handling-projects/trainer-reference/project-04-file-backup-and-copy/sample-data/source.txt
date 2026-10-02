@@ -1,0 +1,4 @@
+C programming is useful.
+File handling is important.
+Reading and writing files is a practical C skill.
+Practice makes programming easier.
