@@ -1,0 +1,7 @@
+1 Food 250.00 Lunch
+2 Transport 120.00 Metro
+3 Food 450.00 Dinner
+4 Bills 1500.00 Electricity
+5 Shopping 850.00 Clothes
+6 Transport 200.00 Taxi
+7 Food 180.00 Breakfast
