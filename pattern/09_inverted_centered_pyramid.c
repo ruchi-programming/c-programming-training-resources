@@ -10,11 +10,10 @@
  * Input / output:
  * Input: integer n. Output: inverted centered pyramid.
  *
- * How the algorithm works:
- * - The outer loop controls the current row.
- * - The inner loop controls columns, spaces, or values printed on that row.
- * - Conditional patterns decide whether a position is a border, diagonal,
- *   center line, or ordinary interior position.
+ * Step-by-step algorithm:
+ * 1. For row i, print i-1 leading blank groups.
+ *  * 2. Print n-i+1 stars, then n-i more, giving 2(n-i)+1 stars.
+ *  * 3. End the row; indentation grows as the pyramid narrows.
  *
  * Suggested test: Try n=4.
  * Constraint: Use n from 1 to 50.

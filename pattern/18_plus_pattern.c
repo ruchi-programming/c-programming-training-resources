@@ -10,11 +10,10 @@
  * Input / output:
  * Input: integer n. Output: plus sign; even input is adjusted to odd.
  *
- * How the algorithm works:
- * - The outer loop controls the current row.
- * - The inner loop controls columns, spaces, or values printed on that row.
- * - Conditional patterns decide whether a position is a border, diagonal,
- *   center line, or ordinary interior position.
+ * Step-by-step algorithm:
+ * 1. If n is even, increase it by one and calculate mid=n/2.
+ *  * 2. Visit every cell; print a star when its row is mid or its column is mid.
+ *  * 3. Print spaces elsewhere and end each row.
  *
  * Suggested test: Try n=5.
  * Constraint: n must be between 1 and 50. If n is even, the supplied function increases it by one.

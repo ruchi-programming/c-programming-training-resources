@@ -1,32 +1,55 @@
 # Alternating Binary Triangle
 
-**Difficulty:** Easy–Moderate
-
 ## Problem statement
-The parity of row+column decides whether to print 1 or 0. The first value is 1.
 
-## Input
-integer n.
+Print a triangular arrangement of 1s and 0s. The value is determined by the parity of the zero-based row and column indices.
 
-## Output
-binary triangle.
+## Sample input and output
 
-## Algorithm explanation
-1. Read `n` from standard input.
-2. Use the outer loop to select the current row.
-3. Use inner loops to print columns, symbols, spaces, or numeric values.
-4. Use conditions where needed to identify boundaries, diagonals, the center, or prime products.
-5. Print a newline after each completed row.
+Input: `5`
 
-## Dry-run guidance
-Try n=5. Trace the outer-loop row value, inner-loop counter, and any condition that determines the printed character.
+```text
+1
+0 1
+1 0 1
+0 1 0 1
+1 0 1 0 1
+```
+
+## Step-by-step algorithm
+
+1. Use zero-based row index `i = 0..n-1`.
+2. For row `i`, visit columns `j = 0..i`; this gives row lengths 1,2,...,n.
+3. Add the indices. If `(i+j) % 2 == 0`, print `1`; otherwise print `0`.
+4. After the row's `i+1` values are printed, move to the next line.
+5. Because each step right or down changes the parity, the binary value alternates across rows and columns.
+
+## Dry run: think through the counters
+
+For `n = 4`: row `i=0` has sum 0 → `1`; row `i=1` has sums 1,2 → `0 1`; row `i=2` has sums 2,3,4 → `1 0 1`; row `i=3` has sums 3,4,5,6 → `0 1 0 1`.
+
+## Why this algorithm works
+
+The test uses zero-based indices, so the first cell `(0,0)` has an even sum and prints 1. This explains why the first row starts with 1.
+
+## Common mistakes to avoid
+
+Using 1-based row/column counters with the same parity rule can flip the starting value. Testing only `i % 2` would make an entire row the same value.
+
+## Pseudocode
+
+```text
+for i = 0..n-1:
+    for j = 0..i:
+        if (i+j)%2 == 0: print 1
+        else: print 0
+    print newline
+```
 
 ## Complexity
-- **Time:** O(n²) for the pattern loops. The prime-product grid additionally checks each product for primality.
-- **Extra space:** O(1).
 
-## Source
-[`21_binary_triangle.c`](21_binary_triangle.c)
+The triangle has `n(n+1)/2` cells, so time is O(n²); extra space is O(1).
 
-## Restrictions
-No arrays, strings, dynamic memory allocation, or data structures are used. The programs use scalar variables, loops, conditions, and formatted input/output.
+## Practice challenge
+
+Change the input size and predict the output before running the program. Then explain what each loop counter represents and why its stopping condition matches this specific shape.

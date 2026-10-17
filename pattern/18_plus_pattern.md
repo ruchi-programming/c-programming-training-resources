@@ -1,32 +1,57 @@
-# Plus Sign Pattern
-
-**Difficulty:** Easy
+# Plus Pattern
 
 ## Problem statement
-Print stars across the middle row and middle column. Even n is increased to the next odd size by the supplied function.
 
-## Input
-integer n.
+Print a plus sign inside an `n × n` grid: the complete middle row and complete middle column are stars. The supplied program increases even `n` to odd.
 
-## Output
-plus sign; even input is adjusted to odd.
+## Sample input and output
 
-## Algorithm explanation
-1. Read `n` from standard input.
-2. Use the outer loop to select the current row.
-3. Use inner loops to print columns, symbols, spaces, or numeric values.
-4. Use conditions where needed to identify boundaries, diagonals, the center, or prime products.
-5. Print a newline after each completed row.
+Input: `5`
 
-## Dry-run guidance
-Try n=5. Trace the outer-loop row value, inner-loop counter, and any condition that determines the printed character.
+```text
+  *
+  *
+*****
+  *
+  *
+```
+
+## Step-by-step algorithm
+
+1. If `n` is even, increment it to make the grid size odd.
+2. Compute the middle index as `mid = n/2`. Because the indices are zero-based, this identifies the exact center row and column.
+3. Visit every cell `(i,j)`.
+4. If `i == mid`, the cell lies in the middle row; if `j == mid`, it lies in the middle column.
+5. Print a star when either condition is true; otherwise print a space. End each row with a newline.
+
+## Dry run: think through the counters
+
+For `n = 5`, `mid = 2`. Every cell in row 2 is a star, and every cell in column 2 is a star. The center cell satisfies both tests but is printed only once.
+
+## Why this algorithm works
+
+A plus is the union of one horizontal line and one vertical line. The OR operator includes cells belonging to either line.
+
+## Common mistakes to avoid
+
+Using `i == mid && j == mid` prints only the center point. Using `mid = (n-1)/2` also works for odd `n`, but it is not the expression used here.
+
+## Pseudocode
+
+```text
+if n is even: n = n+1
+mid = n/2
+for i = 0..n-1:
+    for j = 0..n-1:
+        if i==mid or j==mid: print '*'
+        else: print ' '
+    print newline
+```
 
 ## Complexity
-- **Time:** O(n²) for the pattern loops. The prime-product grid additionally checks each product for primality.
-- **Extra space:** O(1).
 
-## Source
-[`18_plus_pattern.c`](18_plus_pattern.c)
+Every grid position is tested once, so time is O(n²); extra space is O(1).
 
-## Restrictions
-No arrays, strings, dynamic memory allocation, or data structures are used. The programs use scalar variables, loops, conditions, and formatted input/output.
+## Practice challenge
+
+Change the input size and predict the output before running the program. Then explain what each loop counter represents and why its stopping condition matches this specific shape.

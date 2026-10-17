@@ -1,32 +1,53 @@
 # Repeated-Number Triangle
 
-**Difficulty:** Easy
-
 ## Problem statement
-The row counter is printed repeatedly. Row i prints the value i exactly i times.
 
-## Input
-integer n.
+Print row number `i` exactly `i` times on row `i`.
 
-## Output
-n rows of repeated row values.
+## Sample input and output
 
-## Algorithm explanation
-1. Read `n` from standard input.
-2. Use the outer loop to select the current row.
-3. Use inner loops to print columns, symbols, spaces, or numeric values.
-4. Use conditions where needed to identify boundaries, diagonals, the center, or prime products.
-5. Print a newline after each completed row.
+Input: `4`
 
-## Dry-run guidance
-Try n=4. Trace the outer-loop row value, inner-loop counter, and any condition that determines the printed character.
+```text
+1
+2 2
+3 3 3
+4 4 4 4
+```
+
+## Step-by-step algorithm
+
+1. Start the outer loop at row `i = 1`.
+2. Run the inner loop from `j = 1` to `j = i`. The counter `j` controls how many copies appear, not which number appears.
+3. Inside the loop, print `i`, not `j`. Since `i` stays fixed throughout that row, the same number repeats.
+4. Print a newline after the inner loop completes.
+5. Advance `i`; the next row both has a new repeated value and one more copy.
+
+## Dry run: think through the counters
+
+For `n = 3`: row 1 repeats `1` once; row 2 repeats `2` twice; row 3 repeats `3` three times.
+
+## Why this algorithm works
+
+Two counters have different jobs: `i` chooses the value, while `j` counts repetitions. Mixing them up changes the pattern into an increasing number triangle.
+
+## Common mistakes to avoid
+
+Printing `j` gives `1`; `1 2`; `1 2 3`. Printing `i` only once gives one number per row.
+
+## Pseudocode
+
+```text
+for i = 1..n:
+    for j = 1..i:
+        print i
+    print newline
+```
 
 ## Complexity
-- **Time:** O(n²) for the pattern loops. The prime-product grid additionally checks each product for primality.
-- **Extra space:** O(1).
 
-## Source
-[`05_repeated_number_triangle.c`](05_repeated_number_triangle.c)
+The total number of outputs is `n(n+1)/2`, so time is O(n²); extra space is O(1).
 
-## Restrictions
-No arrays, strings, dynamic memory allocation, or data structures are used. The programs use scalar variables, loops, conditions, and formatted input/output.
+## Practice challenge
+
+Change the input size and predict the output before running the program. Then explain what each loop counter represents and why its stopping condition matches this specific shape.

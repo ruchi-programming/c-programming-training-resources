@@ -10,11 +10,10 @@
  * Input / output:
  * Input: integer n. Output: hollow right triangle.
  *
- * How the algorithm works:
- * - The outer loop controls the current row.
- * - The inner loop controls columns, spaces, or values printed on that row.
- * - Conditional patterns decide whether a position is a border, diagonal,
- *   center line, or ordinary interior position.
+ * Step-by-step algorithm:
+ * 1. Row i has positions j=1..i.
+ *  * 2. Print X on the left edge (j==1), diagonal edge (j==i), or base row (i==n).
+ *  * 3. Print spaces at interior positions and end each row.
  *
  * Suggested test: Try n=5.
  * Constraint: Use n from 1 to 50.

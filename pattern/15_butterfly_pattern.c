@@ -10,11 +10,10 @@
  * Input / output:
  * Input: odd integer n. Output: butterfly with n rows.
  *
- * How the algorithm works:
- * - The outer loop controls the current row.
- * - The inner loop controls columns, spaces, or values printed on that row.
- * - Conditional patterns decide whether a position is a border, diagonal,
- *   center line, or ordinary interior position.
+ * Step-by-step algorithm:
+ * 1. Set half=(n+1)/2 and build the widening half for i=1..half.
+ *  * 2. Print i stars, n-2i+1 blank groups, then i stars.
+ *  * 3. Repeat wing sizes from half-1 down to 1 to mirror the lower half.
  *
  * Suggested test: Try n=5.
  * Constraint: Use an odd n from 3 to 31 for a symmetric butterfly.

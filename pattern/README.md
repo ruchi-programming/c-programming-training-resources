@@ -1,6 +1,13 @@
 # C Pattern Printing Programs
 
-Each pattern is provided as a separate, standalone C program with a detailed source-code comment and a matching Markdown explanation.
+Each pattern has its own standalone C source file and a matching Markdown lesson. The lessons now explain the pattern-specific logic: the purpose of each counter, exact loop bounds, conditions, row-by-row dry runs, common mistakes, pseudocode, and complexity.
+
+## How to study a pattern
+1. Read the output and identify what changes from row to row.
+2. Predict the row's spaces, symbols, or values before reading the code.
+3. Trace the outer loop and inner loop separately.
+4. For conditional patterns, test a cell and ask why its condition is true or false.
+5. Compile and run the program only after predicting its output.
 
 ## How to compile and run
 Compile one source file at a time:

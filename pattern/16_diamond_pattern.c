@@ -10,11 +10,10 @@
  * Input / output:
  * Input: integer n. Output: centered diamond.
  *
- * How the algorithm works:
- * - The outer loop controls the current row.
- * - The inner loop controls columns, spaces, or values printed on that row.
- * - Conditional patterns decide whether a position is a border, diagonal,
- *   center line, or ordinary interior position.
+ * Step-by-step algorithm:
+ * 1. Print an increasing centered pyramid: n-i blank groups and 2i-1 stars.
+ *  * 2. Print a decreasing half starting at i=n-1, so the widest row is not duplicated.
+ *  * 3. Each lower row uses the same indentation and star-width formulas.
  *
  * Suggested test: Try n=4.
  * Constraint: Use n from 1 to 50.

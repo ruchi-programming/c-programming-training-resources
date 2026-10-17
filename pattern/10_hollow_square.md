@@ -1,32 +1,55 @@
-# Hollow Square
-
-**Difficulty:** Moderate
+# Hollow Square Pattern
 
 ## Problem statement
-A position is on the border if it is in the first/last row or first/last column. All other positions are blank.
 
-## Input
-integer n.
+Print an `n × n` square with stars only on the outside border. Interior positions are spaces.
 
-## Output
-hollow n-by-n square.
+## Sample input and output
 
-## Algorithm explanation
-1. Read `n` from standard input.
-2. Use the outer loop to select the current row.
-3. Use inner loops to print columns, symbols, spaces, or numeric values.
-4. Use conditions where needed to identify boundaries, diagonals, the center, or prime products.
-5. Print a newline after each completed row.
+Input: `5`
 
-## Dry-run guidance
-Try n=5. Trace the outer-loop row value, inner-loop counter, and any condition that determines the printed character.
+```text
+X X X X X
+X       X
+X       X
+X       X
+X X X X X
+```
+
+## Step-by-step algorithm
+
+1. Loop over every row `i` from 1 to `n`, and every column `j` from 1 to `n`.
+2. At each position, ask whether it lies on the border: first row (`i == 1`), last row (`i == n`), first column (`j == 1`), or last column (`j == n`).
+3. If any one of those tests is true, print a star; otherwise print a blank field.
+4. After all `n` columns are processed, print a newline.
+5. Repeat for all rows. The condition fills all four edges while leaving the interior empty.
+
+## Dry run: think through the counters
+
+For `n = 4`, all positions in rows 1 and 4 are stars. In rows 2 and 3, only columns 1 and 4 are stars; columns 2 and 3 are blank.
+
+## Why this algorithm works
+
+A border cell must touch at least one edge. The condition is an OR (`||`) because touching any edge is enough.
+
+## Common mistakes to avoid
+
+Using `&&` would require a position to be on all edges simultaneously, so most border stars disappear. Forgetting `i == n` or `j == n` leaves the bottom or right edge open.
+
+## Pseudocode
+
+```text
+for i = 1..n:
+    for j = 1..n:
+        if i==1 or i==n or j==1 or j==n: print '*'
+        else: print ' '
+    print newline
+```
 
 ## Complexity
-- **Time:** O(n²) for the pattern loops. The prime-product grid additionally checks each product for primality.
-- **Extra space:** O(1).
 
-## Source
-[`10_hollow_square.c`](10_hollow_square.c)
+Every grid position is visited, giving O(n²) time and O(1) extra space.
 
-## Restrictions
-No arrays, strings, dynamic memory allocation, or data structures are used. The programs use scalar variables, loops, conditions, and formatted input/output.
+## Practice challenge
+
+Change the input size and predict the output before running the program. Then explain what each loop counter represents and why its stopping condition matches this specific shape.

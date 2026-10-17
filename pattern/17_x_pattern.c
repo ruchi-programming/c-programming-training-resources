@@ -10,11 +10,10 @@
  * Input / output:
  * Input: integer n. Output: X pattern; even input is adjusted to odd.
  *
- * How the algorithm works:
- * - The outer loop controls the current row.
- * - The inner loop controls columns, spaces, or values printed on that row.
- * - Conditional patterns decide whether a position is a border, diagonal,
- *   center line, or ordinary interior position.
+ * Step-by-step algorithm:
+ * 1. If n is even, increase it by one so the diagonals cross at the center.
+ *  * 2. Visit every zero-based cell (i,j).
+ *  * 3. Print a star when i==j or i+j==n-1; otherwise print a space.
  *
  * Suggested test: Try n=5.
  * Constraint: n must be between 1 and 50. If n is even, the supplied function increases it by one.

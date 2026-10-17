@@ -10,11 +10,10 @@
  * Input / output:
  * Input: integer n. Output: n-by-n checkerboard.
  *
- * How the algorithm works:
- * - The outer loop controls the current row.
- * - The inner loop controls columns, spaces, or values printed on that row.
- * - Conditional patterns decide whether a position is a border, diagonal,
- *   center line, or ordinary interior position.
+ * Step-by-step algorithm:
+ * 1. Visit every row i and column j.
+ *  * 2. Print X when i+j is even and O when it is odd.
+ *  * 3. Adjacent cells flip parity, so neighboring symbols alternate.
  *
  * Suggested test: Try n=4.
  * Constraint: Use n from 1 to 50.

@@ -10,11 +10,10 @@
  * Input / output:
  * Input: integer n. Output: centered palindromic number pyramid.
  *
- * How the algorithm works:
- * - The outer loop controls the current row.
- * - The inner loop controls columns, spaces, or values printed on that row.
- * - Conditional patterns decide whether a position is a border, diagonal,
- *   center line, or ordinary interior position.
+ * Step-by-step algorithm:
+ * 1. On row i, print n-i pairs of leading spaces.
+ *  * 2. Print values 1..i, then i-1..1 so the peak appears only once.
+ *  * 3. End the row; the second sequence mirrors the first.
  *
  * Suggested test: Try n=5.
  * Constraint: Use n from 1 to 9 for clean single-digit alignment.

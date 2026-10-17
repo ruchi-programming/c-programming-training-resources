@@ -10,11 +10,10 @@
  * Input / output:
  * Input: integer n. Output: n-by-n multiplication grid.
  *
- * How the algorithm works:
- * - The outer loop controls the current row.
- * - The inner loop controls columns, spaces, or values printed on that row.
- * - Conditional patterns decide whether a position is a border, diagonal,
- *   center line, or ordinary interior position.
+ * Step-by-step algorithm:
+ * 1. Choose row multiplier i=1..n.
+ *  * 2. For every column j=1..n, calculate and print i*j.
+ *  * 3. End the row after all n products.
  *
  * Suggested test: Try n=3.
  * Constraint: Use n from 1 to 12.

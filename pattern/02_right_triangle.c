@@ -10,11 +10,10 @@
  * Input / output:
  * Input: integer n. Output: n left-aligned rows.
  *
- * How the algorithm works:
- * - The outer loop controls the current row.
- * - The inner loop controls columns, spaces, or values printed on that row.
- * - Conditional patterns decide whether a position is a border, diagonal,
- *   center line, or ordinary interior position.
+ * Step-by-step algorithm:
+ * 1. Visit rows i = 1..n.
+ *  * 2. On row i, print stars for columns j = 1..i.
+ *  * 3. End the row; the star count therefore grows by one each time.
  *
  * Suggested test: Try n=4.
  * Constraint: Use n from 1 to 50.

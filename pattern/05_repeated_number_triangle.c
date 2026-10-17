@@ -10,11 +10,10 @@
  * Input / output:
  * Input: integer n. Output: n rows of repeated row values.
  *
- * How the algorithm works:
- * - The outer loop controls the current row.
- * - The inner loop controls columns, spaces, or values printed on that row.
- * - Conditional patterns decide whether a position is a border, diagonal,
- *   center line, or ordinary interior position.
+ * Step-by-step algorithm:
+ * 1. Visit rows i = 1..n.
+ *  * 2. Repeat i times, printing i each time; i chooses the value and j counts copies.
+ *  * 3. End the row.
  *
  * Suggested test: Try n=4.
  * Constraint: Use n from 1 to 50.

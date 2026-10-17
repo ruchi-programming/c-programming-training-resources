@@ -1,32 +1,53 @@
-# Solid Square
-
-**Difficulty:** Very Easy
+# Solid Square Pattern
 
 ## Problem statement
-Print n rows and n columns of stars. The outer loop selects each row; the inner loop prints n stars.
 
-## Input
-integer n.
+Read `n` and print an `n × n` block of stars. Every row has exactly `n` stars.
 
-## Output
-n lines with n stars each.
+## Sample input and output
 
-## Algorithm explanation
-1. Read `n` from standard input.
-2. Use the outer loop to select the current row.
-3. Use inner loops to print columns, symbols, spaces, or numeric values.
-4. Use conditions where needed to identify boundaries, diagonals, the center, or prime products.
-5. Print a newline after each completed row.
+Input: `4`
 
-## Dry-run guidance
-Try n=4. Trace the outer-loop row value, inner-loop counter, and any condition that determines the printed character.
+```text
+* * * *
+* * * *
+* * * *
+* * * *
+```
+
+## Step-by-step algorithm
+
+1. Start the row counter `i` at 1. It identifies which line is being printed.
+2. For each row, start a fresh column counter `j` at 1. The column loop runs all the way to `n`, regardless of the row number.
+3. Print `* ` once for every column. Because every row uses the same column limit, every line has the same width.
+4. After the inner loop finishes, print a newline. Then advance to the next row.
+5. Stop after row `n`; the result has `n` rows and `n` stars per row.
+
+## Dry run: think through the counters
+
+For `n = 3`: row 1 prints at columns 1, 2, 3; row 2 again prints at columns 1, 2, 3; row 3 does the same. No condition is needed inside the grid because every position is filled.
+
+## Why this algorithm works
+
+A filled square has no special border or interior rule. Every `(row, column)` position is a star, so the inner loop has the constant limit `n`.
+
+## Common mistakes to avoid
+
+Using `j <= i` accidentally makes a triangle. Forgetting the newline puts all stars on one line.
+
+## Pseudocode
+
+```text
+for each row i = 1..n:
+    for each column j = 1..n:
+        print "* "
+    print newline
+```
 
 ## Complexity
-- **Time:** O(n²) for the pattern loops. The prime-product grid additionally checks each product for primality.
-- **Extra space:** O(1).
 
-## Source
-[`01_solid_square.c`](01_solid_square.c)
+The program prints `n²` stars, so time is O(n²). It uses only loop counters, so extra space is O(1).
 
-## Restrictions
-No arrays, strings, dynamic memory allocation, or data structures are used. The programs use scalar variables, loops, conditions, and formatted input/output.
+## Practice challenge
+
+Change the input size and predict the output before running the program. Then explain what each loop counter represents and why its stopping condition matches this specific shape.

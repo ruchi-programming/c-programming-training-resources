@@ -1,32 +1,54 @@
-# Centered Star Pyramid
-
-**Difficulty:** Easy–Moderate
+# Centered Solid Star Pyramid
 
 ## Problem statement
-Each row prints leading blanks, then an increasing and decreasing star run. Row i has 2i-1 stars.
 
-## Input
-integer n.
+Print a centered pyramid. Row `i` has `2i-1` stars, with a decreasing number of leading blank groups.
 
-## Output
-centered pyramid.
+## Sample input and output
 
-## Algorithm explanation
-1. Read `n` from standard input.
-2. Use the outer loop to select the current row.
-3. Use inner loops to print columns, symbols, spaces, or numeric values.
-4. Use conditions where needed to identify boundaries, diagonals, the center, or prime products.
-5. Print a newline after each completed row.
+Input: `4`
 
-## Dry-run guidance
-Try n=4. Trace the outer-loop row value, inner-loop counter, and any condition that determines the printed character.
+```text
+      *
+    * * *
+  * * * * *
+* * * * * * *
+```
+
+## Step-by-step algorithm
+
+1. Start row `i` at 1.
+2. Print `n-i` leading blank groups. This moves the shorter upper rows toward the center.
+3. Print the rising half: `i` stars. The loop runs `k = 1..i`.
+4. Print the falling half: `i-1` more stars. It starts at `i-1` so the peak is not printed twice.
+5. End the line and increase `i`. The total star count is `i + (i-1) = 2i-1`.
+
+## Dry run: think through the counters
+
+For `n = 3`: row 1 has 2 blank groups and 1 star; row 2 has 1 blank group and 3 stars; row 3 has no leading blank groups and 5 stars.
+
+## Why this algorithm works
+
+A centered pyramid needs both indentation and an odd star count. Splitting the stars into `i` and `i-1` produces 1, 3, 5, ... stars.
+
+## Common mistakes to avoid
+
+Using `i` for both star loops produces `2i` stars, an even count. Starting the second loop at `i` repeats the peak star.
+
+## Pseudocode
+
+```text
+for i = 1..n:
+    print n-i blank groups
+    print i stars
+    print i-1 stars
+    print newline
+```
 
 ## Complexity
-- **Time:** O(n²) for the pattern loops. The prime-product grid additionally checks each product for primality.
-- **Extra space:** O(1).
 
-## Source
-[`08_centered_pyramid.c`](08_centered_pyramid.c)
+The row widths grow linearly and there are `n` rows, so time is O(n²); extra space is O(1).
 
-## Restrictions
-No arrays, strings, dynamic memory allocation, or data structures are used. The programs use scalar variables, loops, conditions, and formatted input/output.
+## Practice challenge
+
+Change the input size and predict the output before running the program. Then explain what each loop counter represents and why its stopping condition matches this specific shape.

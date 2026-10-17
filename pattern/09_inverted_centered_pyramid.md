@@ -1,32 +1,54 @@
 # Inverted Centered Pyramid
 
-**Difficulty:** Easy–Moderate
-
 ## Problem statement
-Leading blanks increase each row while the star count decreases by two.
 
-## Input
-integer n.
+Print a centered pyramid upside down: the first row is widest and each following row loses two stars while gaining indentation.
 
-## Output
-inverted centered pyramid.
+## Sample input and output
 
-## Algorithm explanation
-1. Read `n` from standard input.
-2. Use the outer loop to select the current row.
-3. Use inner loops to print columns, symbols, spaces, or numeric values.
-4. Use conditions where needed to identify boundaries, diagonals, the center, or prime products.
-5. Print a newline after each completed row.
+Input: `4`
 
-## Dry-run guidance
-Try n=4. Trace the outer-loop row value, inner-loop counter, and any condition that determines the printed character.
+```text
+* * * * * * *
+  * * * * *
+    * * *
+      *
+```
+
+## Step-by-step algorithm
+
+1. Begin at row `i = 1`.
+2. Print `i-1` leading blank groups, so indentation grows as the pyramid narrows.
+3. Calculate the star count as `2*(n-i)+1`: it begins at `2n-1` and drops by two each row.
+4. Print that many stars, then end the line.
+5. Advance `i` until `n`. On the final row, the formula gives one star.
+
+## Dry run: think through the counters
+
+For `n = 4`, star counts are 7, 5, 3, 1 and blank-group counts are 0, 1, 2, 3.
+
+## Why this algorithm works
+
+The expression `2*(n-i)+1` is the reverse of the solid pyramid's `2*i-1`: the row index grows, but the available width shrinks.
+
+## Common mistakes to avoid
+
+Using `2*i-1` creates an upright pyramid. Forgetting the `+1` gives zero stars on the final row.
+
+## Pseudocode
+
+```text
+for i = 1..n:
+    print i-1 blank groups
+    starCount = 2*(n-i)+1
+    print starCount stars
+    print newline
+```
 
 ## Complexity
-- **Time:** O(n²) for the pattern loops. The prime-product grid additionally checks each product for primality.
-- **Extra space:** O(1).
 
-## Source
-[`09_inverted_centered_pyramid.c`](09_inverted_centered_pyramid.c)
+The total printed width over all rows is O(n²); extra space is O(1).
 
-## Restrictions
-No arrays, strings, dynamic memory allocation, or data structures are used. The programs use scalar variables, loops, conditions, and formatted input/output.
+## Practice challenge
+
+Change the input size and predict the output before running the program. Then explain what each loop counter represents and why its stopping condition matches this specific shape.

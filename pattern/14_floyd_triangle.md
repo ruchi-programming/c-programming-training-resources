@@ -1,32 +1,55 @@
 # Floyd's Triangle
 
-**Difficulty:** Easy–Moderate
-
 ## Problem statement
-A single counter continues increasing as triangular rows are printed.
 
-## Input
-integer n.
+Print consecutive positive integers in rows of increasing length: row 1 has one value, row 2 has two, and so on.
 
-## Output
-consecutive integers in triangular rows.
+## Sample input and output
 
-## Algorithm explanation
-1. Read `n` from standard input.
-2. Use the outer loop to select the current row.
-3. Use inner loops to print columns, symbols, spaces, or numeric values.
-4. Use conditions where needed to identify boundaries, diagonals, the center, or prime products.
-5. Print a newline after each completed row.
+Input: `4`
 
-## Dry-run guidance
-Try n=4. Trace the outer-loop row value, inner-loop counter, and any condition that determines the printed character.
+```text
+1
+2 3
+4 5 6
+7 8 9 10
+```
+
+## Step-by-step algorithm
+
+1. Initialize a single counter `value = 1` before entering the outer loop.
+2. Choose row `i`. Its inner loop runs `i` times because the row must contain `i` values.
+3. Print `value`, then increment it so the next position receives the next integer.
+4. After `i` values, end the line. Keep the counter unchanged except for the increments; do not restart it on a new row.
+5. Repeat until row `n` is complete.
+
+## Dry run: think through the counters
+
+For `n = 4`, the rows consume 1 value, then 2, then 3, then 4. The consecutive ranges are `1`; `2–3`; `4–6`; `7–10`.
+
+## Why this algorithm works
+
+The row loop determines the number of entries; the separate persistent counter determines their values. This is the key difference from a number triangle that restarts at 1.
+
+## Common mistakes to avoid
+
+Putting `value = 1` inside the outer loop restarts the sequence. Incrementing before printing makes the first number 2.
+
+## Pseudocode
+
+```text
+value = 1
+for i = 1..n:
+    repeat i times:
+        print value
+        value = value + 1
+    print newline
+```
 
 ## Complexity
-- **Time:** O(n²) for the pattern loops. The prime-product grid additionally checks each product for primality.
-- **Extra space:** O(1).
 
-## Source
-[`14_floyd_triangle.c`](14_floyd_triangle.c)
+It prints `n(n+1)/2` numbers, so time is O(n²); extra space is O(1).
 
-## Restrictions
-No arrays, strings, dynamic memory allocation, or data structures are used. The programs use scalar variables, loops, conditions, and formatted input/output.
+## Practice challenge
+
+Change the input size and predict the output before running the program. Then explain what each loop counter represents and why its stopping condition matches this specific shape.

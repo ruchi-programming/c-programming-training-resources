@@ -10,11 +10,10 @@
  * Input / output:
  * Input: integer n. Output: centered hollow pyramid.
  *
- * How the algorithm works:
- * - The outer loop controls the current row.
- * - The inner loop controls columns, spaces, or values printed on that row.
- * - Conditional patterns decide whether a position is a border, diagonal,
- *   center line, or ordinary interior position.
+ * Step-by-step algorithm:
+ * 1. On row i, print n-i leading spaces and scan 2i-1 positions.
+ *  * 2. Print a star at the first/last position or anywhere on the final row.
+ *  * 3. Print spaces inside the pyramid and end the row.
  *
  * Suggested test: Try n=5.
  * Constraint: Use n from 1 to 50.

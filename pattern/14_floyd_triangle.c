@@ -10,11 +10,10 @@
  * Input / output:
  * Input: integer n. Output: consecutive integers in triangular rows.
  *
- * How the algorithm works:
- * - The outer loop controls the current row.
- * - The inner loop controls columns, spaces, or values printed on that row.
- * - Conditional patterns decide whether a position is a border, diagonal,
- *   center line, or ordinary interior position.
+ * Step-by-step algorithm:
+ * 1. Initialize value=1 before the row loop.
+ *  * 2. On row i, print i consecutive values, incrementing after each print.
+ *  * 3. Preserve value across rows and end each row after i numbers.
  *
  * Suggested test: Try n=4.
  * Constraint: Use n from 1 to 50.

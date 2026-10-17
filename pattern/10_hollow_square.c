@@ -10,11 +10,10 @@
  * Input / output:
  * Input: integer n. Output: hollow n-by-n square.
  *
- * How the algorithm works:
- * - The outer loop controls the current row.
- * - The inner loop controls columns, spaces, or values printed on that row.
- * - Conditional patterns decide whether a position is a border, diagonal,
- *   center line, or ordinary interior position.
+ * Step-by-step algorithm:
+ * 1. Visit every cell in the n-by-n grid.
+ *  * 2. Print X if the cell is in the first/last row or first/last column.
+ *  * 3. Print spaces for interior cells, then end each row.
  *
  * Suggested test: Try n=5.
  * Constraint: Use n from 1 to 50.

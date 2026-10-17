@@ -10,11 +10,10 @@
  * Input / output:
  * Input: odd integer n recommended. Output: hollow hourglass.
  *
- * How the algorithm works:
- * - The outer loop controls the current row.
- * - The inner loop controls columns, spaces, or values printed on that row.
- * - Conditional patterns decide whether a position is a border, diagonal,
- *   center line, or ordinary interior position.
+ * Step-by-step algorithm:
+ * 1. Compute mid=n/2 and print the upper half with growing indentation and width 2(mid-i)+1.
+ *  * 2. Keep stars on both edges; fill the top row to make the top edge solid.
+ *  * 3. Print the lower half with width 2i+1; fill the last row to close the bottom edge.
  *
  * Suggested test: Try n=7.
  * Constraint: Use an odd n from 3 to 31 for a symmetric hourglass.

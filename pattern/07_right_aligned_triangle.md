@@ -1,32 +1,53 @@
 # Right-Aligned Star Triangle
 
-**Difficulty:** Easy
-
 ## Problem statement
-Each row first prints n-i leading blank groups, then i stars. The blank groups align the right edges.
 
-## Input
-integer n.
+Print an increasing triangle whose right edge stays aligned. Each row has leading blank groups followed by stars.
 
-## Output
-right-aligned triangle.
+## Sample input and output
 
-## Algorithm explanation
-1. Read `n` from standard input.
-2. Use the outer loop to select the current row.
-3. Use inner loops to print columns, symbols, spaces, or numeric values.
-4. Use conditions where needed to identify boundaries, diagonals, the center, or prime products.
-5. Print a newline after each completed row.
+Input: `4`
 
-## Dry-run guidance
-Try n=4. Trace the outer-loop row value, inner-loop counter, and any condition that determines the printed character.
+```text
+      *
+    * *
+  * * *
+* * * *
+```
+
+## Step-by-step algorithm
+
+1. Choose row `i`, from 1 through `n`.
+2. First print `n-i` blank groups. The first row gets `n-1` groups; every next row gets one fewer.
+3. Then print `i` stars using a separate loop. Do not mix the space count and star count into one loop because they follow different formulas.
+4. Print a newline and advance to the next row.
+5. At the last row, `n-i` is zero, so no leading blanks remain and all `n` stars begin at the left.
+
+## Dry run: think through the counters
+
+For `n = 4`: row 1 prints 3 blank groups + 1 star; row 2 prints 2 + 2; row 3 prints 1 + 3; row 4 prints 0 + 4. Each blank group is two spaces in this implementation.
+
+## Why this algorithm works
+
+The leading whitespace decreases while the number of stars increases. These opposite trends keep the triangle's right edge aligned.
+
+## Common mistakes to avoid
+
+Using `n-i+1` for spaces leaves an extra gap on the last row. Printing spaces after stars rather than before them left-aligns the triangle.
+
+## Pseudocode
+
+```text
+for i = 1..n:
+    repeat n-i times: print two spaces
+    repeat i times: print "* "
+    print newline
+```
 
 ## Complexity
-- **Time:** O(n²) for the pattern loops. The prime-product grid additionally checks each product for primality.
-- **Extra space:** O(1).
 
-## Source
-[`07_right_aligned_triangle.c`](07_right_aligned_triangle.c)
+Across all rows, spaces and stars total O(n²), so time is O(n²); extra space is O(1).
 
-## Restrictions
-No arrays, strings, dynamic memory allocation, or data structures are used. The programs use scalar variables, loops, conditions, and formatted input/output.
+## Practice challenge
+
+Change the input size and predict the output before running the program. Then explain what each loop counter represents and why its stopping condition matches this specific shape.

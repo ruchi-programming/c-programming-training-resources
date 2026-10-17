@@ -27,3 +27,8 @@ Compiler flags: `gcc -std=c11 -Wall -Wextra -pedantic`.
 - `21_binary_triangle.c`: PASS
 - `22_palindromic_number_pyramid.c`: PASS
 - `23_prime_product_grid.c`: PASS
+
+
+## Explanation quality revision
+
+The matching Markdown lesson for each of the 23 programs has been rewritten with pattern-specific numbered steps, a concrete counter/value dry run, a rationale for the relevant formula or condition, common pattern-specific mistakes, pseudocode, and complexity notes. These are not generic nested-loop explanations.

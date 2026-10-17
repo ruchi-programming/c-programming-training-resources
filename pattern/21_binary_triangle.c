@@ -10,11 +10,10 @@
  * Input / output:
  * Input: integer n. Output: binary triangle.
  *
- * How the algorithm works:
- * - The outer loop controls the current row.
- * - The inner loop controls columns, spaces, or values printed on that row.
- * - Conditional patterns decide whether a position is a border, diagonal,
- *   center line, or ordinary interior position.
+ * Step-by-step algorithm:
+ * 1. Use zero-based rows i=0..n-1; row i has columns 0..i.
+ *  * 2. Print 1 when i+j is even and 0 when it is odd.
+ *  * 3. End each row; parity causes the values to alternate.
  *
  * Suggested test: Try n=5.
  * Constraint: Use n from 1 to 50.
